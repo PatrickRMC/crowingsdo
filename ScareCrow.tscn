@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Crop.tscn" type="PackedScene" id=1]
+[ext_resource path="res://crop2.png" type="Texture" id=2]
+[ext_resource path="res://crop1.png" type="Texture" id=3]
+[ext_resource path="res://crop0.png" type="Texture" id=4]
+[ext_resource path="res://scarecrow.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "growing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[node name="ScareCrow" instance=ExtResource( 1 )]
+bad = true
+
+[node name="AnimatedSprite" parent="." index="0"]
+frames = SubResource( 1 )

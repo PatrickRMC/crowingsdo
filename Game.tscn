@@ -1,0 +1,377 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://bg.png" type="Texture" id=1]
+[ext_resource path="res://Game.gd" type="Script" id=2]
+[ext_resource path="res://Crow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ambientsmth.wav" type="AudioStream" id=4]
+[ext_resource path="res://heart.png" type="Texture" id=5]
+[ext_resource path="res://text.tres" type="DynamicFont" id=6]
+[ext_resource path="res://bg2.png" type="Texture" id=7]
+[ext_resource path="res://grass.png" type="Texture" id=8]
+[ext_resource path="res://cloud.png" type="Texture" id=9]
+[ext_resource path="res://cloud2.png" type="Texture" id=10]
+[ext_resource path="res://scrollbg.gd" type="Script" id=11]
+[ext_resource path="res://menu.png" type="Texture" id=12]
+[ext_resource path="res://playhires.png" type="Texture" id=13]
+[ext_resource path="res://gameover.png" type="Texture" id=14]
+[ext_resource path="res://te2xture.png" type="Texture" id=15]
+[ext_resource path="res://Gameover.gd" type="Script" id=16]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 39, 348 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -237.8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect2:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect3:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TextureRect4:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TextureRect5:rect_rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "hearts"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.29 ),
+"transitions": PoolRealArray( 0, 0, 0 ),
+"update": 0,
+"values": [ -5.0, 10.0, -10.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect2:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.37 ),
+"transitions": PoolRealArray( 0, 0, 0 ),
+"update": 0,
+"values": [ -5.0, 10.0, -10.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect3:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.195, 0.39 ),
+"transitions": PoolRealArray( 0, 0, 0 ),
+"update": 0,
+"values": [ -5.0, 10.0, -10.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TextureRect4:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.24, 0.45 ),
+"transitions": PoolRealArray( 0, 0, 0 ),
+"update": 0,
+"values": [ -5.0, 10.0, -10.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TextureRect5:rect_rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.47 ),
+"transitions": PoolRealArray( 0, 0, 0 ),
+"update": 0,
+"values": [ -5.0, 10.0, -10.0 ]
+}
+
+[node name="Game" type="Node2D"]
+position = Vector2( -66, -68 )
+script = ExtResource( 2 )
+
+[node name="Bg" type="Sprite" parent="."]
+position = Vector2( 565, 402 )
+z_index = -100
+texture = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 578, 368 )
+current = true
+
+[node name="Cropspawns" type="Node2D" parent="."]
+
+[node name="Position2D" type="Position2D" parent="Cropspawns"]
+position = Vector2( 160, 584 )
+
+[node name="Position2D2" type="Position2D" parent="Cropspawns"]
+position = Vector2( 307, 586 )
+
+[node name="Position2D3" type="Position2D" parent="Cropspawns"]
+position = Vector2( 482, 606 )
+
+[node name="Position2D4" type="Position2D" parent="Cropspawns"]
+position = Vector2( 691, 590 )
+
+[node name="Position2D5" type="Position2D" parent="Cropspawns"]
+position = Vector2( 856, 629 )
+
+[node name="Position2D6" type="Position2D" parent="Cropspawns"]
+position = Vector2( 997, 599 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="sidecoll" type="Area2D" parent="." groups=["edgecol"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sidecoll"]
+position = Vector2( 26, 343 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="sidecoll"]
+position = Vector2( 1129, 390 )
+shape = SubResource( 1 )
+
+[node name="Crow" parent="." instance=ExtResource( 3 )]
+position = Vector2( 971, 131 )
+z_index = 100
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.0
+autoplay = true
+
+[node name="Grass" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 342, 628 )
+rotation = -0.0623208
+texture = ExtResource( 8 )
+
+[node name="Grass2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 889, 639 )
+rotation = 0.0496797
+texture = ExtResource( 8 )
+
+[node name="Bg2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.407843 )
+position = Vector2( 282, 426 )
+scale = Vector2( 0.976, 1 )
+texture = ExtResource( 7 )
+
+[node name="Bg3" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.407843 )
+position = Vector2( 820, 421 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 7 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 1
+follow_viewport_enable = true
+script = ExtResource( 11 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -91, 327 )
+z_index = 1
+motion_mirroring = Vector2( 1500, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 410.956, -26.916 )
+scale = Vector2( 0.542, 0.657 )
+texture = ExtResource( 9 )
+
+[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 891, -210 )
+scale = Vector2( 0.542, 0.657 )
+texture = ExtResource( 9 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -321.044, -192.916 )
+scale = Vector2( 0.542, 0.657 )
+texture = ExtResource( 10 )
+
+[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -33, -108 )
+rotation = -0.0293597
+scale = Vector2( 0.542, 0.657 )
+texture = ExtResource( 10 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HeartsContainer" type="HBoxContainer" parent="Control"]
+margin_left = 812.0
+margin_top = 79.0
+margin_right = 1348.0
+margin_bottom = 193.0
+grow_horizontal = 0
+rect_scale = Vector2( 0.5, 0.5 )
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HeartsContainer"]
+margin_right = 104.0
+margin_bottom = 114.0
+rect_rotation = -237.8
+texture = ExtResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="Control/HeartsContainer"]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 114.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect3" type="TextureRect" parent="Control/HeartsContainer"]
+margin_left = 216.0
+margin_right = 320.0
+margin_bottom = 114.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect4" type="TextureRect" parent="Control/HeartsContainer"]
+margin_left = 324.0
+margin_right = 428.0
+margin_bottom = 114.0
+texture = ExtResource( 5 )
+
+[node name="TextureRect5" type="TextureRect" parent="Control/HeartsContainer"]
+margin_left = 432.0
+margin_right = 536.0
+margin_bottom = 114.0
+texture = ExtResource( 5 )
+
+[node name="scorelabel" type="Label" parent="Control"]
+modulate = Color( 0, 0, 0, 0.596078 )
+margin_left = 78.0
+margin_top = 83.0
+margin_right = 118.0
+margin_bottom = 97.0
+custom_fonts/font = ExtResource( 6 )
+text = "SCORE: 00000"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+root_node = NodePath("../HeartsContainer")
+anims/RESET = SubResource( 2 )
+anims/hearts = SubResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Gameover" type="Panel" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 337.0
+margin_top = 216.0
+margin_right = -634.0
+margin_bottom = -346.0
+rect_scale = Vector2( 6.45459, 5.02323 )
+script = ExtResource( 16 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Gameover"]
+modulate = Color( 1, 0.992157, 0.960784, 1 )
+self_modulate = Color( 1, 1, 1, 0.576471 )
+margin_left = -5.42249
+margin_top = -6.76855
+margin_right = 439.578
+margin_bottom = 294.231
+rect_scale = Vector2( 0.169301, 0.18691 )
+texture = ExtResource( 15 )
+
+[node name="Gameover" type="Sprite" parent="CanvasLayer/Gameover"]
+position = Vector2( 27.8871, 9.7547 )
+scale = Vector2( 0.0648568, 0.078364 )
+texture = ExtResource( 14 )
+
+[node name="menu" type="TextureButton" parent="CanvasLayer/Gameover"]
+margin_left = 38.1125
+margin_top = 24.2872
+margin_right = 224.113
+margin_bottom = 106.287
+rect_scale = Vector2( 0.0722562, 0.099285 )
+texture_normal = ExtResource( 12 )
+
+[node name="menu2" type="TextureButton" parent="CanvasLayer/Gameover"]
+margin_left = 7.28162
+margin_top = 24.0881
+margin_right = 206.282
+margin_bottom = 125.088
+rect_scale = Vector2( 0.0648568, 0.078364 )
+texture_normal = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="CanvasLayer/Gameover"]
+margin_left = 21.5351
+margin_top = 14.1343
+margin_right = 116.535
+margin_bottom = 55.1343
+rect_scale = Vector2( 0.123341, 0.187544 )
+custom_colors/font_color = Color( 0, 0, 0, 0.470588 )
+custom_fonts/font = ExtResource( 6 )
+text = "00000"
+align = 1
+valign = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Gameover/menu" to="CanvasLayer/Gameover" method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Gameover/menu2" to="." method="_on_menu2_pressed"]
